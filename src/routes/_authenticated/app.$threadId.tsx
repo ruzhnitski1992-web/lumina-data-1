@@ -1,0 +1,11 @@
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { listConversations,loadConversation,newConversation,deleteConversation } from '@/lib/conversations.functions';
+import { ChatWindow } from '@/components/site/ChatWindow';
+import { VoicePanel } from '@/components/site/VoicePanel';
+import { Button } from '@/components/ui/button';
+import { pageHead } from '@/lib/meta';
+import type { UIMessage } from 'ai';
+import { Trash2 } from 'lucide-react';
+export const Route=createFileRoute('/_authenticated/app/$threadId')({loader:async({params,context})=>{await context.queryClient.ensureQueryData({queryKey:['conversations'],queryFn:()=>listConversations()});return context.queryClient.ensureQueryData({queryKey:['conversation',params.threadId],queryFn:()=>loadConversation({data:{id:params.threadId}})});},head:()=>pageHead('Conversación privada','Historial privado de análisis y consultas con Lumina IA.'),component:Page});
+function Page(){const row=Route.useLoaderData();const{data:threads}=useSuspenseQuery({queryKey:['conversations'],queryFn:()=>listConversations()});const navigate=useNavigate();return <main className="mx-auto max-w-[1180px] px-5 pt-32 pb-20"><div className="grid gap-8 lg:grid-cols-[240px_1fr]"><aside><a href="/app" className="text-sm text-lp-blue">← Archivos e informes</a><Button className="mt-5 w-full" onClick={async()=>{const c=await newConversation();await navigate({to:'/app/$threadId',params:{threadId:c.id}});}}>Nueva conversación</Button><ul className="mt-5 space-y-3">{threads.map(t=><li className="flex items-center gap-1" key={t.id}><a href={`/app/${t.id}`} className={`min-w-0 flex-1 truncate rounded-md p-3 text-sm ${t.id===row.id?'bg-lp-alt text-lp-blue':'text-lp-slate'}`}>{t.title}</a><Button size="icon" variant="ghost" aria-label={`Eliminar ${t.title}`} onClick={async()=>{if(window.confirm('¿Eliminar esta conversación?')){await deleteConversation({data:{id:t.id}});await navigate({to:'/app'});}}}><Trash2/></Button></li>)}</ul></aside><div className="min-w-0"><ChatWindow key={row.id} id={row.id} initialMessages={Array.isArray(row.messages)?row.messages as unknown as UIMessage[]:[]}/><VoicePanel/></div></div></main>}
