@@ -1,0 +1,20 @@
+CREATE TABLE public.subscriptions (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL,
+  paddle_subscription_id text NOT NULL UNIQUE,
+  paddle_customer_id text NOT NULL,
+  product_id text NOT NULL,
+  price_id text NOT NULL,
+  status text NOT NULL DEFAULT 'active',
+  current_period_start timestamptz,
+  current_period_end timestamptz,
+  cancel_at_period_end boolean DEFAULT false,
+  environment text NOT NULL DEFAULT 'sandbox',
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now()
+);
+CREATE INDEX idx_subscriptions_user_id ON public.subscriptions(user_id);
+GRANT SELECT ON public.subscriptions TO authenticated;
+GRANT ALL ON public.subscriptions TO service_role;
+ALTER TABLE public.subscriptions ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "own_subscription_read" ON public.subscriptions FOR SELECT TO authenticated USING (auth.uid() = user_id);

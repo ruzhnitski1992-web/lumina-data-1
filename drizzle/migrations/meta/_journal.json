@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791566356187,
+      "tag": "0000_lumina_conversations_trials_requests",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791569023027,
+      "tag": "0001_observatory_sources",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791570249311,
+      "tag": "0002_subscriptions",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1791571047862,
+      "tag": "0003_analysis_subscribers_and_refund",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1791577102928,
+      "tag": "0004_app_user_connections",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1791647849050,
+      "tag": "0005_plan_entitlements",
+      "breakpoints": true
+    }
+  ]
+}

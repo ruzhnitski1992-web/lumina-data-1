@@ -1,0 +1,101 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: Bingbot
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: Twitterbot
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: facebookexternalhit
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: GPTBot
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+User-agent: *
+Allow: /
+Disallow: /app
+Disallow: /cliente
+Disallow: /admin
+Disallow: /mi-cuenta
+Disallow: /auditoria/
+Disallow: /api
+Disallow: /auth
+
+Sitemap: https://luminadatainsights.com/sitemap.xml
